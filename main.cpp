@@ -1,5 +1,6 @@
-import mymod;
+#include <iostream>
+#include <SDL.h>
 
 int main() {
-    helloModule();
+    return 0;
 }
