@@ -1,13 +1,9 @@
-cmake_minimum_required(VERSION 3.18)
-project(simple)
+cmake_minimum_required(VERSION 3.18.0)
 
-add_compile_options(
-    -std=c++20 
-    -fmodules-ts 
-)
+project(shurukaro)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
+if(APPLE)
+   include_directories(AFTER "/opt/X11/include")
+endif()
 
-# order is important
-add_executable(simple 
-    sdlcontext.cxx
-    main.cpp
-)
