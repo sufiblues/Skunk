@@ -1,17 +1,21 @@
+
+#stb_image
+#adding hashmap
+#adding math lib
+
 #adding libraries that will be added to the main program
 add_subdirectory(SDL ${CMAKE_CURRENT_BINARY_DIR}/SDL2-build)
-include_directories("SDL/include/")
-link_libraries(SDL2main SDL2)
-#adding hashmap
-include_directories(parallel_hashmap)
-#adding math lib
-include_directories(glm)
+
+#flatbuffers
+# Add FlatBuffers directly to our build. This defines the `flatbuffers` target.
+add_subdirectory(flatbuffers
+                 ${CMAKE_CURRENT_BINARY_DIR}/flatbuffers-build
+                 EXCLUDE_FROM_ALL)
+
 #adding dearimgui
 file(GLOB IMGUI "imgui/*.cpp")
 add_library(imgui SHARED ${IMGUI})
-link_libraries(imgui)
-#flatbuffers
+target_link_libraries(imgui SDL2main SDL2)
 
-#stb_image
 
 
